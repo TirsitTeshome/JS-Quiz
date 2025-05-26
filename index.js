@@ -62,15 +62,15 @@ class TeamMember {
     return new Promise((resolve, reject) => {
       const done = this.tasks.every(i => i.completed);
       if (done) {
-        resolve("All tasks completed!");
+        resolve("All tasks are completed!");
       } else {
-        reject("Pending tasks remaining");
+        reject("Some tasks remaining");
       }
     });
   };
-  const member = new TeamMember("Semhal", "Developer", [
-    { title: "FrontEnd", completed: true },
-    { title: "Write Tesy", completed: true }
+  const member = new TeamMember("Tirsit", "Designer", [
+    { title: "python", completed: true },
+    { title: "Research", completed: true }
   ]);
   member.completeTask("Setup project");
   member.checkProgress()
@@ -108,6 +108,16 @@ candidate.sendConfirmation()
 
 
 //Fourth-Question
+
+/// Create a class called  Course
+// It has properties of title (string),instructor (string),students (array of objects: { name, progress })
+// Create a function called updateProgress that takes studentName and value
+// Find the student by name
+// Set their progress to the given value.
+// Create  async function called generateCertificate that takes in  studentName
+// Find the student by name.
+// If their progress is 100, resolve the Promise with a certificate message.
+// If not reject with "Incomplete progress"
 class Course {
     constructor(title, instructor, students) {
         this.title = title
