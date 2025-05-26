@@ -59,6 +59,7 @@ order.processPayment();
 //         let task= this.tasks.find()
 //     }
 
+
 //Third Question
 
 class Candidate {
@@ -146,5 +147,22 @@ course.generateCertificate("Tirsit")
         // If none, reject with "No alerts triggered" number 5
 
 
-class StockTracker
+class StockTracker{
+    constructor(watchList=[]){
+        this.watchList= watchList
+    }
+
+    updatePrice(symbol, newPrice){
+        let stock=this.watchList.find(item=> item.symbol==symbol);
+        if (stock){
+            stock.currentPrice= newPrice;
+        }
+    }
+
+    async checkAlerts(){
+        return new Promise((resolve,reject)=>{
+            const triggered= this.watchList.filter(stock=> stock.currentPrice)
+        })
+    }
+}
 
