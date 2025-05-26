@@ -47,17 +47,36 @@ order.processPayment();
 
 
 //Second-Question
-// class TeamMember{
-//     constructor(name, role, tasks){
-//         this.name=name;
-//         this.role=role;
-//         this.tasks=tasks;
-//     }
+class TeamMember {
+    constructor(name, role, tasks) {
+      this.name = name;
+      this.role = role;
+      this.tasks = tasks;
+    }
+  }
+  TeamMember.prototype.completeTask = function(taskTitle) {
+    const task = this.tasks.find(item => item.title === taskTitle);
+    if (task) task.completed = true;
+  };
+  TeamMember.prototype.checkProgress = function() {
+    return new Promise((resolve, reject) => {
+      const done = this.tasks.every(i => i.completed);
+      if (done) {
+        resolve("All tasks completed!");
+      } else {
+        reject("Pending tasks remaining");
+      }
+    });
+  };
+  const member = new TeamMember("Semhal", "Developer", [
+    { title: "FrontEnd", completed: true },
+    { title: "Write Tesy", completed: true }
+  ]);
+  member.completeTask("Setup project");
+  member.checkProgress()
+    .then(message => console.log(message))
+    .catch(message => console.log(message));
 
-// }
-//    TeamMember.prototype.completeTask= function(taskTitle){
-//         let task= this.tasks.find()
-//     }
 
 
 //Third Question
@@ -161,8 +180,23 @@ class StockTracker{
 
     async checkAlerts(){
         return new Promise((resolve,reject)=>{
-            const triggered= this.watchList.filter(stock=> stock.currentPrice)
+            const triggered= this.watchList.filter(stock=> stock.currentPrice>= stock.threshold)
+
+            if (triggered.length>0){
+                resolve(triggered);
+            }
+            else{
+                reject("No triggered alerts")
+            }
         })
     }
 }
 
+let tracker= new StockTracker([{symbol: "AA", threshold: 100, currentPrice: 145},
+    {symbol:"BB", threshold:150, currentPrice:2000}
+])
+
+tracker.updatePrice("AA", 200);
+tracker.checkAlerts()
+    .then(alerts => console.log(alerts))
+    .catch(message => console.log(message));
