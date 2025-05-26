@@ -1,62 +1,80 @@
 // First- Question
-class customerOrder{
-    constructor(orderId, items, status){
-        this.orderId=orderId
-        this.items= items
-        this.status= status
+
+//PseudoCode
+// Input
+//  orderId (string)
+//  items (array of objects: {name, quantity, price})
+//  status (string)
+
+// Process
+// 1. First  Calculate the total amount by summing (quantity * price) for each item
+// 2. Then Simulate payment with a 2-second delay which is 2000 milliseconds
+// 3. Finally after payment, set the payment status to "paid" and print the result(payment success)
+
+// Output
+// Total order amount
+// Status updated to "paid" and success message printed
+
+class customerOrder {
+    constructor(orderId, items, status) {
+        this.orderId = orderId
+        this.items = items
+        this.status = status
     }
-    calculateTotal(){
-        return this.items.reduce((total,item)=>{
-            return total + item.quantity * item.price
-        }, 0)
+   calculateTotal(){
+        let sum=0;
+        for(let item of this.items){
+        sum += item.quantity * item.price
+        }
+        return sum
     }
 
-    async processPayment(){
+    async processPayment() {
         console.log(`payment process for ${this.orderId}`)
-        await new Promise(resolve=> setTimeout(resolve,2000))
-        this.status= 'paid'
+        await new Promise(resolve => setTimeout(resolve, 2000))
+        this.status = 'paid'
         console.log(`Successful payment order ${this.orderId} in ${this.status} status`)
     }
 }
 
-let order= new customerOrder('OR9', [{name: 'laptop', quantity: 5, price: 200000},
-    {name: "Phone", quantity: 2, price: 60000},
-    {name: "tablet", quantity: 4, price: 100000}
- ])
+let order = new customerOrder('OR9', [{ name: 'laptop', quantity: 5, price: 200000 },
+{ name: "Phone", quantity: 2, price: 60000 },
+{ name: "tablet", quantity: 4, price: 100000 }
+])
 
- console.log ('Total amount is', order.calculateTotal());
- order.processPayment();
+console.log('Total amount is', order.calculateTotal());
+order.processPayment();
 
 
- //Second-Question
-class TeamMember{
-    constructor(name, role, tasks){
-        this.name=name;
-        this.role=role;
-        this.tasks=tasks;
-    }
- 
-}
-   TeamMember.prototype.completeTask= function(taskTitle){
-        let task= this.tasks.find()
-    }
+//Second-Question
+// class TeamMember{
+//     constructor(name, role, tasks){
+//         this.name=name;
+//         this.role=role;
+//         this.tasks=tasks;
+//     }
+
+// }
+//    TeamMember.prototype.completeTask= function(taskTitle){
+//         let task= this.tasks.find()
+//     }
 
 //Third Question
 
-class Candidate{
-    constructor(name, position, interviews=[]){
-        this.name= name
-        this.position=position
-        this.interviews= interviews
+class Candidate {
+    constructor(name, position, interviews = []) {
+        this.name = name
+        this.position = position
+        this.interviews = interviews
     }
-    scheduleInterview(date){
-        this.interviews.push({date, status: "pending"})
+    scheduleInterview(date) {
+        this.interviews.push({ date, status: "pending" })
     }
 
-    async sendConfirmation(){
-        return new Promise((resolve)=> {
-            setTimeout(()=>{
-                let message= `Interview confirmed with ${this.name}`
+    async sendConfirmation() {
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                let message = `Interview confirmed with ${this.name}`
                 console.log(message)
                 resolve(message)
             }, 1000)
@@ -64,7 +82,69 @@ class Candidate{
     }
 }
 
-let candidate= new Candidate('Tirsit', 'Designer')
-    candidate.scheduleInterview('2025-05-26')
-    candidate.sendConfirmation()
+let candidate = new Candidate('Tirsit', 'Designer')
+candidate.scheduleInterview('2025-05-26')
+candidate.sendConfirmation()
+
+
+//Fourth-Question
+class Course {
+    constructor(title, instructor, students) {
+        this.title = title
+        this.instructor = instructor
+        this.students = students
+    }
+
+    updateProgress(studentName, value) {
+        let student= this.students.find(stud=> stud.name === studentName)
+        if (student) {
+            student.progress = value
+        }
+        else {
+            throw new Error(`Student ${studentName} doesn't exist`)
+        }
+    }
+
+    async generateCertificate(studentName) {
+        let student=this.students.find(stud=>stud.name == studentName)
+        if (!student) {
+            throw new Error(`Student ${studentName} doesn't exist`)
+        }
+        return new Promise((resolve,reject)=>{
+            if (student.progress==100){
+                resolve(`Certificate for ${studentName}`)
+            }
+            else{
+                reject('Incomplete')
+            }
+        })
+    }
+}
+
+let course = new Course ('Python', 'James', [{name: 'Tirsit', progress:100},
+    {name: "Hellen", progress:98}
+])
+
+course.updateProgress("Tirsit", 100)
+
+course.generateCertificate("Tirsit")
+.then(text=>console.log(text))
+.catch(message=> console.log(message))
+
+
+//Question-5 
+//Pseudocode
+//         // Create class called StockTracker
+        // Has  properties of watchlist (array of {symbol, threshold, currentPrice})
+        // Has a method of updatePrice(symbol, newPrice)
+        // Find the stock by symbol in the watchlist
+        // Update its currentPrice to newPrice.
+        // Create Async function called checkAlerts()
+        // Loop through the watchlist
+        // Collect stocks where currentPrice >= threshold
+        // If found, resolve with their list
+        // If none, reject with "No alerts triggered" number 5
+
+
+class StockTracker
 
