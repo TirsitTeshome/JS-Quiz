@@ -126,12 +126,12 @@ candidate.sendConfirmation()
 /// Create a class named Course
 // It has properties of title (string),instructor (string),students (array of objects: { name, progress })
 // Create a function called updateProgress that takes studentName and value
-// Find the student by name
-// Set their progress to the given value.
-// Create  async function called generateCertificate that takes in  studentName
+//Check if the student exists in the list by finding with their names
+// we set their progress to the given value.
+// Create async function called generateCertificate that takes in student name
 // Find the student by name.
 // If their progress is 100, resolve the Promise with a certificate message.
-// If not reject with "Incomplete progress"
+// If not reject with "Incomplete"
 
 class Course {
     constructor(title, instructor, students) {
@@ -179,16 +179,14 @@ course.generateCertificate("Tirsit")
 
 //Question-5 
 //Pseudocode
-//         // Create class called StockTracker
-        // Has  properties of watchlist (array of {symbol, threshold, currentPrice})
-        // Has a method of updatePrice(symbol, newPrice)
-        // Find the stock by symbol in the watchlist
-        // Update its currentPrice to newPrice.
-        // Create Async function called checkAlerts()
-        // Loop through the watchlist
-        // Collect stocks where currentPrice >= threshold
-        // If found, resolve with their list
-        // If none, reject with "No alerts triggered" number 5
+        // Create class called StockTracker with properties of watchlist which is array of symbol, threshold, currentPrice and has a method of updatePrice(symbol, newPrice)
+        // We find the stock by symbol in the watchlist
+        // We update its currentPrice to newPrice.
+        // We create Async function called checkAlerts
+        // we Loop through the watchlist
+        // then collect stocks where currentPrice is greater than the threshold
+        // If we find any, resolve with their list
+        // If we didn't find then reject with "No triggered alerts"
 
 
 class StockTracker{
