@@ -114,8 +114,8 @@ candidate.sendConfirmation()
 //Fourth-Question
 //Algorithm
 // Create a class named Course
-// It has properties of title (string),instructor (string),students (array of objects: { name, progress })
-// Create a function called updateProgress that takes studentName and value
+// It has properties of title,instructor and students which is an array of objects: { name, progress })
+// Create a function called update progress that takes student name and value
 //Check if the student exists in the list by finding with their names
 // we set their progress to the given value.
 // Create async function called generateCertificate that takes in student name
@@ -169,14 +169,12 @@ course.generateCertificate("Tirsit")
 
 //Question-5 
 //Algorithm
-// Create class called StockTracker with properties of watchlist which is array of symbol, threshold, currentPrice and has a method of updatePrice(symbol, newPrice)
+// Create class called StockTracker with properties of watchlist which is array of symbol, threshold, currentPrice and has a method of updatePrice that takes in symbol and newPrice as a parameter
 // We find the stock by symbol in the watchlist
-// We update its currentPrice to newPrice.
-// We create Async function called checkAlerts
-// we Loop through the watchlist
-// then collect stocks where currentPrice is greater than the threshold
+// We update its current price to new price.
+// We create Async function called checkAlerts which loops through the watchlist then collects stocks where the current price is greater than the threshold
 // If we find any, resolve with their list
-// If we didn't find then reject with "No triggered alerts"
+// If we didn't find then reject with "No triggered alerts".
 
 
 class StockTracker{
