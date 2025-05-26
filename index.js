@@ -1,6 +1,6 @@
 // First- Question
 class customerOrder{
-    constructor(orderId, items, status='pending'){
+    constructor(orderId, items, status){
         this.orderId=orderId
         this.items= items
         this.status= status
@@ -35,8 +35,36 @@ class TeamMember{
         this.role=role;
         this.tasks=tasks;
     }
+ 
+}
+   TeamMember.prototype.completeTask= function(taskTitle){
+        let task= this.tasks.find()
+    }
 
-    completeTask(taskTitle){
-        let task= this.tasks
+//Third Question
+
+class Candidate{
+    constructor(name, position, interviews=[]){
+        this.name= name
+        this.position=position
+        this.interviews= interviews
+    }
+    scheduleInterview(date){
+        this.interviews.push({date, status: "pending"})
+    }
+
+    async sendConfirmation(){
+        return new Promise((resolve)=> {
+            setTimeout(()=>{
+                let message= `Interview confirmed with ${this.name}`
+                console.log(message)
+                resolve(message)
+            }, 1000)
+        })
     }
 }
+
+let candidate= new Candidate('Tirsit', 'Designer')
+    candidate.scheduleInterview('2025-05-26')
+    candidate.sendConfirmation()
+
