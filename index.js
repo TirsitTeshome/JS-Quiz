@@ -1,19 +1,9 @@
 // First- Question
 
-//PseudoCode
-// Input
-//  orderId (string)
-//  items (array of objects: {name, quantity, price})
-//  status (string)
-
-// Process
+//Algorithm
 // 1. First  Calculate the total amount by summing (quantity * price) for each item
 // 2. Then Simulate payment with a 2-second delay which is 2000 milliseconds
 // 3. Finally after payment, set the payment status to "paid" and print the result(payment success)
-
-// Output
-// Total order amount
-// Status updated to "paid" and success message printed
 
 class customerOrder {
     constructor(orderId, items, status) {
@@ -122,8 +112,8 @@ candidate.sendConfirmation()
 
 
 //Fourth-Question
-
-/// Create a class named Course
+//Algorithm
+// Create a class named Course
 // It has properties of title (string),instructor (string),students (array of objects: { name, progress })
 // Create a function called updateProgress that takes studentName and value
 //Check if the student exists in the list by finding with their names
@@ -178,15 +168,15 @@ course.generateCertificate("Tirsit")
 
 
 //Question-5 
-//Pseudocode
-        // Create class called StockTracker with properties of watchlist which is array of symbol, threshold, currentPrice and has a method of updatePrice(symbol, newPrice)
-        // We find the stock by symbol in the watchlist
-        // We update its currentPrice to newPrice.
-        // We create Async function called checkAlerts
-        // we Loop through the watchlist
-        // then collect stocks where currentPrice is greater than the threshold
-        // If we find any, resolve with their list
-        // If we didn't find then reject with "No triggered alerts"
+//Algorithm
+// Create class called StockTracker with properties of watchlist which is array of symbol, threshold, currentPrice and has a method of updatePrice(symbol, newPrice)
+// We find the stock by symbol in the watchlist
+// We update its currentPrice to newPrice.
+// We create Async function called checkAlerts
+// we Loop through the watchlist
+// then collect stocks where currentPrice is greater than the threshold
+// If we find any, resolve with their list
+// If we didn't find then reject with "No triggered alerts"
 
 
 class StockTracker{
