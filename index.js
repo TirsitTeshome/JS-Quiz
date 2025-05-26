@@ -47,6 +47,13 @@ order.processPayment();
 
 
 //Second-Question
+//// Create a class called TeamMember that has properties name,role and list of tasks
+// Create a function prototype called completeTask that takes taskTitle
+// Check if the task exist in the given array
+// If the task exists we assign completed status to true
+// then we check if every task in the tasks arrray is complete
+// if completed,resolve with "all tasks are completed"
+// if not reject with "Some tasks remaining"
 class TeamMember {
     constructor(name, role, tasks) {
       this.name = name;
@@ -80,6 +87,11 @@ class TeamMember {
 
 
 //Third Question
+// Create a class called candidate that has a name and position property
+// Initialize empty array
+// Create a function called scheduleInterview that takes in date
+// we Push the interview object to interview list with status and date
+// Then resolve Confirmation with 1 secod delay
 
 class Candidate {
     constructor(name, position, interviews = []) {
@@ -109,7 +121,7 @@ candidate.sendConfirmation()
 
 //Fourth-Question
 
-/// Create a class called  Course
+/// Create a class named Course
 // It has properties of title (string),instructor (string),students (array of objects: { name, progress })
 // Create a function called updateProgress that takes studentName and value
 // Find the student by name
