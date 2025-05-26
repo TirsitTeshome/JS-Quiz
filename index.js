@@ -54,6 +54,7 @@ order.processPayment();
 // then we check if every task in the tasks arrray is complete
 // if completed,resolve with "all tasks are completed"
 // if not reject with "Some tasks remaining"
+
 class TeamMember {
     constructor(name, role, tasks) {
       this.name = name;
@@ -87,11 +88,12 @@ class TeamMember {
 
 
 //Third Question
+//Algorithm
 // Create a class called candidate that has a name and position property
 // Initialize empty array
 // Create a function called scheduleInterview that takes in date
 // we Push the interview object to interview list with status and date
-// Then resolve Confirmation with 1 secod delay
+// Then resolve Confirmation with 1 second or 1000 milliseconds delay
 
 class Candidate {
     constructor(name, position, interviews = []) {
@@ -130,6 +132,7 @@ candidate.sendConfirmation()
 // Find the student by name.
 // If their progress is 100, resolve the Promise with a certificate message.
 // If not reject with "Incomplete progress"
+
 class Course {
     constructor(title, instructor, students) {
         this.title = title
